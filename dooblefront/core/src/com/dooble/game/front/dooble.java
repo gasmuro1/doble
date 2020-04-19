@@ -28,7 +28,7 @@ public class dooble extends Game {
 	Jugador jugador;
 	Partida partida;
 	String netStatus="Inactive";
-	String vUrl="http://localhost:8080/";
+	String vUrl="https://doble.herokuapp.com/";
     PartidaScreen ps=null;
     NivelScreen ns=null;
     FinalScreen fs=null;

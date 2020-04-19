@@ -30,6 +30,7 @@ public class PartidaScreen extends BaseScreen {
     Carta [] cartas;
     boolean recargarTarjetas=false;
     private List <Label> scores;
+    private Label texto;
     BitmapFont myFont;
     public PartidaScreen(dooble game) {
         super(game);
@@ -107,6 +108,16 @@ public class PartidaScreen extends BaseScreen {
         stage=new Stage();
         loadObjetos();
         loadScore();
+        Label.LabelStyle label1Style = new Label.LabelStyle();
+        label1Style.font = myFont;
+        label1Style.fontColor = Color.BLACK;
+        texto=new Label("Seleciona aqui el objeto repetido",label1Style);
+        texto.setSize(Gdx.graphics.getWidth()/2,50);
+        texto.setFontScale(1);
+        texto.setPosition(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()-170);
+        texto.setAlignment(Align.center);
+
+        stage.addActor(texto);
 
         Gdx.input.setInputProcessor(stage);
         stage.addActor(cartas[0]);
