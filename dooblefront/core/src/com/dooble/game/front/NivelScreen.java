@@ -67,49 +67,51 @@ public class NivelScreen extends BaseScreen {
 
     @Override
     public void show() {
+        int lineHeight=Gdx.graphics.getHeight()/10;
         stage=new Stage();
         Gdx.input.setInputProcessor(stage);
         skin= new Skin(Gdx.files.internal("uiskin.json"));
         Label linea1=new Label("Elige",skin);
-        linea1.setSize(Gdx.graphics.getWidth(),40);
-        linea1.setFontScale(2.5f);
-        linea1.setPosition(0,Gdx.graphics.getHeight()-100);
+        linea1.setSize(Gdx.graphics.getWidth(),lineHeight);
+        linea1.setFontScale(5f);
+        linea1.setPosition(0,Gdx.graphics.getHeight()-lineHeight*2);
         linea1.setAlignment(Align.center);
         stage.addActor(linea1);
 
         Label linea2 =new Label("Nivel:",skin);
-        linea2.setSize(Gdx.graphics.getWidth()/2,40);
-        linea2.setFontScale(1.5f);
-        linea2.setPosition(0,Gdx.graphics.getHeight()-150);
+        linea2.setSize(Gdx.graphics.getWidth()/2,lineHeight);
+        linea2.setFontScale(3);
+        linea2.setPosition(0,Gdx.graphics.getHeight()-lineHeight*4);
         linea2.setAlignment(Align.right);
         stage.addActor(linea2);
 
         estadoLabel =new Label("ESTADO",skin);
-        estadoLabel.setSize(Gdx.graphics.getWidth(),40);
-        estadoLabel.setFontScale(1.5f);
+        estadoLabel.setSize(Gdx.graphics.getWidth(),lineHeight);
+        estadoLabel.setFontScale(3);
         estadoLabel.setPosition(0,10);
         estadoLabel.setAlignment(Align.center);
         stage.addActor(estadoLabel);
 
 
         nivelSelectBox = new SelectBox<String>(skin);
-        nivelSelectBox.setPosition(Gdx.graphics.getWidth()/2+10,Gdx.graphics.getHeight()-150);
-        nivelSelectBox.setSize(Gdx.graphics.getWidth()/2-20, 40);
+        nivelSelectBox.getStyle().font.getData().setScale(3);
+        nivelSelectBox.setPosition(Gdx.graphics.getWidth()/2+10,Gdx.graphics.getHeight()-lineHeight*4);
+        nivelSelectBox.setSize(Gdx.graphics.getWidth()/2-50, lineHeight);
         Array<String> niveles=new Array<String>();
         niveles.add("2","3","7","9");
         nivelSelectBox.setItems(niveles);
         stage.addActor(nivelSelectBox);            // <-- Actor now on stage
 
         Label linea3 =new Label("Modo:",skin);
-        linea3.setSize(Gdx.graphics.getWidth()/2,40);
-        linea3.setFontScale(1.5f);
-        linea3.setPosition(0,Gdx.graphics.getHeight()-200);
+        linea3.setSize(Gdx.graphics.getWidth()/2,lineHeight);
+        linea3.setFontScale(3);
+        linea3.setPosition(0,Gdx.graphics.getHeight()-lineHeight*6);
         linea3.setAlignment(Align.right);
         stage.addActor(linea3);
 
         modoSelectBox = new SelectBox<String>(skin);
-        modoSelectBox.setPosition(Gdx.graphics.getWidth()/2+10,Gdx.graphics.getHeight()-200);
-        modoSelectBox.setSize(Gdx.graphics.getWidth()/2-20, 40);
+        modoSelectBox.setPosition(Gdx.graphics.getWidth()/2+10,Gdx.graphics.getHeight()-lineHeight*6);
+        modoSelectBox.setSize(Gdx.graphics.getWidth()/2-50,lineHeight);
         Array<String> modos=new Array<String>();
         modos.add("Entrenamiento","Red");
         modoSelectBox.setItems(modos);
@@ -117,8 +119,9 @@ public class NivelScreen extends BaseScreen {
 
 
         TextButton btnLogin =new TextButton("Continuar",skin);
-        btnLogin.setPosition(Gdx.graphics.getWidth()/2-150,200);
-        btnLogin.setSize(300,60);
+        btnLogin.getLabel().setFontScale(3);
+        btnLogin.setPosition(Gdx.graphics.getWidth()/2-150,Gdx.graphics.getHeight()-lineHeight*8);
+        btnLogin.setSize(600,lineHeight);
         btnLogin.addListener(new ClickListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {

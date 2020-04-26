@@ -1,5 +1,6 @@
 package com.dooble.game.front.actors;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -61,6 +62,6 @@ public class ActorObjeto extends Actor {
     }
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        batch.draw(objetoSprite,getX(),getY(),100,100);
+        batch.draw(objetoSprite,getX(),getY(), Gdx.graphics.getWidth()/2/3,Gdx.graphics.getHeight()/10*7/3);
     }
 }

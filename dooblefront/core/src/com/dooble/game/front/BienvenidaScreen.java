@@ -46,32 +46,36 @@ public class BienvenidaScreen extends BaseScreen {
 
     @Override
     public void show() {
+        int lineHeight=Gdx.graphics.getHeight()/10;
         stage=new Stage();
         Gdx.input.setInputProcessor(stage);
         skin= new Skin(Gdx.files.internal("uiskin.json"));
         Label linea1=new Label("Hola bienvenido al DOOBLE",skin);
-        linea1.setSize(Gdx.graphics.getWidth(),50);
-        linea1.setFontScale(2.5f);
-        linea1.setPosition(0,Gdx.graphics.getHeight()-100);
+        linea1.setSize(Gdx.graphics.getWidth(),lineHeight);
+        linea1.setFontScale(5f);
+        linea1.setPosition(0,Gdx.graphics.getHeight()-2*lineHeight);
         linea1.setAlignment(Align.center);
         stage.addActor(linea1);
 
         Label linea2 =new Label("Como te quieres llamar:",skin);
-        linea2.setSize(Gdx.graphics.getWidth()/2,50);
-        linea2.setFontScale(1.5f);
-        linea2.setPosition(0,Gdx.graphics.getHeight()-150);
+        linea2.setSize(Gdx.graphics.getWidth()/2,lineHeight);
+        linea2.setFontScale(3f);
+        linea2.setPosition(0,Gdx.graphics.getHeight()-4*lineHeight);
         linea2.setAlignment(Align.right);
         stage.addActor(linea2);
 
+        skin.get(TextField.TextFieldStyle.class).font.getData().setScale(3f);
         usernameTextField = new TextField("",skin);
-        usernameTextField.setPosition(Gdx.graphics.getWidth()/2+10,Gdx.graphics.getHeight()-150);
-        usernameTextField.setSize(Gdx.graphics.getWidth()/2-20, 50);
+        usernameTextField.setPosition(Gdx.graphics.getWidth()/2+10,Gdx.graphics.getHeight()-4*lineHeight);
+        usernameTextField.setSize(Gdx.graphics.getWidth()/2-20, lineHeight);
+
 
         stage.addActor(usernameTextField);            // <-- Actor now on stage
 
         TextButton btnLogin =new TextButton("Continuar",skin);
         btnLogin.setPosition(Gdx.graphics.getWidth()/2-150,200);
-        btnLogin.setSize(300,60);
+        btnLogin.setSize(600,lineHeight);
+        btnLogin.getLabel().setFontScale(5f);
         btnLogin.addListener(new ClickListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {

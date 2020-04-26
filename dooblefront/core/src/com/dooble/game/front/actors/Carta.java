@@ -1,5 +1,6 @@
 package com.dooble.game.front.actors;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -20,7 +21,8 @@ public class Carta extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        batch.draw (texture,this.getX(),this.getY());
+        batch.draw (texture,this.getX(),this.getY(), Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/10*7);
+
 
     }
 }

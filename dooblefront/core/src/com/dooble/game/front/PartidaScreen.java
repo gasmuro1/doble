@@ -32,6 +32,7 @@ public class PartidaScreen extends BaseScreen {
     private List <Label> scores;
     private Label texto;
     BitmapFont myFont;
+    int lineHeight=Gdx.graphics.getHeight()/10;
     public PartidaScreen(dooble game) {
         super(game);
         textureAtlas=new TextureAtlas("things1.txt");
@@ -85,9 +86,9 @@ public class PartidaScreen extends BaseScreen {
         scores= new ArrayList<Label>();
         for (Jugador j:game.getPartida().getJugadores())
         {  Label label1=new Label(String.format("%s:%d",j.getNombre(),j.getPuntos()),label1Style);
-          label1.setSize(Gdx.graphics.getWidth()/2,50);
-           label1.setFontScale(2);
-          label1.setPosition(x+10,Gdx.graphics.getHeight()-y*50);
+          label1.setSize(Gdx.graphics.getWidth()/2,lineHeight);
+           label1.setFontScale(3);
+          label1.setPosition(x+10,Gdx.graphics.getHeight()-y*lineHeight);
           if (x==0)
           {
               x=Gdx.graphics.getWidth()/2;
@@ -105,6 +106,7 @@ public class PartidaScreen extends BaseScreen {
 
     @Override
     public void show() {
+
         stage=new Stage();
         loadObjetos();
         loadScore();
@@ -112,9 +114,9 @@ public class PartidaScreen extends BaseScreen {
         label1Style.font = myFont;
         label1Style.fontColor = Color.BLACK;
         texto=new Label("Seleciona aqui el objeto repetido",label1Style);
-        texto.setSize(Gdx.graphics.getWidth()/2,50);
-        texto.setFontScale(1);
-        texto.setPosition(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()-170);
+        texto.setSize(Gdx.graphics.getWidth()/2,lineHeight);
+        texto.setFontScale(3);
+        texto.setPosition(Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()-lineHeight*2);
         texto.setAlignment(Align.center);
 
         stage.addActor(texto);
@@ -128,10 +130,10 @@ public class PartidaScreen extends BaseScreen {
         {
             stage.addActor(tarjetaJugador.get(i));
             tarjetaJugador.get(i).setPosition(x,y);
-            x=x+102;
+            x=x+Gdx.graphics.getWidth()/2/3;
             if (x+50>=Gdx.graphics.getWidth()/2)
             {
-                y=y+102;
+                y=y+Gdx.graphics.getWidth()/2/3;
                 x=0;
             }
         }
@@ -141,17 +143,17 @@ public class PartidaScreen extends BaseScreen {
         {
             stage.addActor(tarjetaBaraja.get(i));
             tarjetaBaraja.get(i).setPosition(x,y);
-            tarjetaBaraja.get(i).setBounds(x,y,100,100);
-            x=x+102;
+            tarjetaBaraja.get(i).setBounds(x,y,Gdx.graphics.getWidth()/2/3,Gdx.graphics.getWidth()/2/3);
+            x=x+Gdx.graphics.getWidth()/2/3;
             if (x+50>=Gdx.graphics.getWidth())
             {
-                y=y+102;
+                y=y+Gdx.graphics.getWidth()/2/3;
                 x=Gdx.graphics.getWidth()/2;
             }
         }
 
         cartas[0].setPosition(0,0);
-        cartas[1].setPosition(311,0);
+        cartas[1].setPosition(Gdx.graphics.getWidth()/2,0);
 
     }
 
