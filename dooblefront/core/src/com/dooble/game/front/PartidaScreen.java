@@ -16,6 +16,7 @@ import com.dooble.game.front.actors.ActorObjeto;
 import com.dooble.game.front.actors.Carta;
 import com.dooble.game.front.model.Jugador;
 import com.dooble.game.front.model.Objeto;
+//import com.sun.xml.internal.ws.api.model.wsdl.WSDLDescriptorKind;
 
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class PartidaScreen extends BaseScreen {
     boolean recargarTarjetas=false;
     private List <Label> scores;
     private Label texto;
+    private Label labelQuedan;
     BitmapFont myFont;
     int lineHeight=Gdx.graphics.getHeight()/10;
     public PartidaScreen(dooble game) {
@@ -102,6 +104,16 @@ public class PartidaScreen extends BaseScreen {
           stage.addActor(label1);
           scores.add(label1);
         }
+        Label.LabelStyle label2Style = new Label.LabelStyle();
+        myFont = new BitmapFont();
+        label2Style.font = myFont;
+        label2Style.fontColor = Color.BLACK;
+        labelQuedan=new Label(String.format("Quedan : %d",game.getPartida().getNumCartasBarajas()), label2Style);
+        labelQuedan.setSize(Gdx.graphics.getWidth()/2,lineHeight);
+        labelQuedan.setFontScale(3);
+        labelQuedan.setPosition(10,Gdx.graphics.getHeight()-2*lineHeight);
+        stage.addActor(labelQuedan);
+
     }
 
     @Override
@@ -182,10 +194,10 @@ public class PartidaScreen extends BaseScreen {
                 if (scores!=null) {
                     int o=0;
                     for (Jugador j:game.getPartida().getJugadores())
-                        scores.get(o++).setText(String.
-
-                                format("%s:%d", j.getNombre(), j.getPuntos()));
+                        scores.get(o++).setText(String.format("%s:%d", j.getNombre(), j.getPuntos()));
                 }
+                labelQuedan.setText(String.format("Quedan:%s",game.getPartida().getNumCartasBarajas()));
+
                 stage.draw();
         }
         else if (game.getPartida().getEstado().equals("Finalizado")){

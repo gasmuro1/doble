@@ -14,6 +14,7 @@ public class Partida {
     String estado;
     Tarjeta cartaEnJuego=null;
     long timestamptEstado=0;
+    int numCartasBarajas;
     public void addJugador (Jugador jugador)
     {
         if (jugadores ==null)
