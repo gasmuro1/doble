@@ -132,8 +132,12 @@ public class Partida {
     }
 
     public int getNumCartasBarajas()
+
     {
-        return baraja.cartas.size();
+        if (baraja!=null)
+           return baraja.cartas.size();
+        else
+            return 0;
     }
 
 

@@ -145,7 +145,7 @@ public class PartidaScreen extends BaseScreen {
             x=x+Gdx.graphics.getWidth()/2/3;
             if (x+50>=Gdx.graphics.getWidth()/2)
             {
-                y=y+Gdx.graphics.getWidth()/2/3;
+                y=y+Gdx.graphics.getHeight()/10*7/3;
                 x=0;
             }
         }
@@ -155,11 +155,11 @@ public class PartidaScreen extends BaseScreen {
         {
             stage.addActor(tarjetaBaraja.get(i));
             tarjetaBaraja.get(i).setPosition(x,y);
-            tarjetaBaraja.get(i).setBounds(x,y,Gdx.graphics.getWidth()/2/3,Gdx.graphics.getWidth()/2/3);
+            tarjetaBaraja.get(i).setBounds(x,y,Gdx.graphics.getWidth()/2/3,Gdx.graphics.getHeight()/10*7/3);
             x=x+Gdx.graphics.getWidth()/2/3;
             if (x+50>=Gdx.graphics.getWidth())
             {
-                y=y+Gdx.graphics.getWidth()/2/3;
+                y=y+Gdx.graphics.getHeight()/10*7/3;
                 x=Gdx.graphics.getWidth()/2;
             }
         }
