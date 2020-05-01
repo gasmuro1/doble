@@ -79,6 +79,7 @@ public class FinalScreen extends BaseScreen {
         btnContinuar.addListener(new ClickListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                   game.borrarJugador();
                    game.partida=null;
                    game.setScreen(game.ns);
             }
@@ -92,11 +93,12 @@ public class FinalScreen extends BaseScreen {
         btnLogin.addListener(new ClickListener() {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-               Gdx.app.exit();
+                game.borrarJugador();
+                Gdx.app.exit();
             }
         });
         stage.addActor(btnLogin);
-        game.borrarJugador();
+       // game.borrarJugador();
     }
 
 

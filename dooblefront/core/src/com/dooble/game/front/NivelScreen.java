@@ -98,7 +98,7 @@ public class NivelScreen extends BaseScreen {
         nivelSelectBox.setPosition(Gdx.graphics.getWidth()/2+10,Gdx.graphics.getHeight()-lineHeight*4);
         nivelSelectBox.setSize(Gdx.graphics.getWidth()/2-50, lineHeight);
         Array<String> niveles=new Array<String>();
-        niveles.add("2","3","7","9");
+        niveles.add("2","3","7");
         nivelSelectBox.setItems(niveles);
         stage.addActor(nivelSelectBox);            // <-- Actor now on stage
 

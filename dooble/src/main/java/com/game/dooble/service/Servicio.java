@@ -97,13 +97,17 @@ public class Servicio  {
     public Partida checkObjeto(int idPartida,int idJugador,Objeto objeto)
     {
         Partida partida=partidas.get(idPartida);
+        Jugador jugador=partida.getJugador(idJugador);
         if (partida.checkObjeto(objeto))
         {
-            Jugador jugador=partida.getJugador(idJugador);
             jugador.setPuntos(jugador.getPuntos()+1);
             jugador.setTarjeta(partida.getCartaEnJuego());
             partida.setEstado("Listo");
             partida.recoverTarjeta();
+        }
+        else
+        {
+            jugador.setPuntos(jugador.getPuntos()-1);
         }
         return partida;
     }
