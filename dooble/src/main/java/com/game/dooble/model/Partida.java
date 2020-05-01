@@ -102,9 +102,9 @@ public class Partida {
         return null;
     }
 
-    public boolean checkObjeto(Objeto objeto)
+    public boolean checkObjeto(Jugador j,Objeto objeto)
     {
-        for (Objeto o:cartaEnJuego.getObjetos()) {
+        for (Objeto o:j.getTarjeta().getObjetos()) {
             if (o.equals(objeto))
                 return true;
         }
@@ -126,7 +126,10 @@ public class Partida {
         for (Jugador j: jugadores)
         {
             if (id== j.getId())
+            {
                 jugadores.remove(j);
+                break;
+            }
         }
 
     }

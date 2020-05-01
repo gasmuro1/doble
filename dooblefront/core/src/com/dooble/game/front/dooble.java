@@ -155,19 +155,17 @@ public class dooble extends Game {
 	{
 		Objeto objeto=null;
 		System.out.println(Id);
-		for (Objeto o:jugador.getTarjeta().getObjetos())
+		for (Objeto o:partida.getCartaEnJuego().getObjetos())
 		{
 			System.out.println("jugoado tarjeta objeto"+o.getId());
 
 			if (o.getId().equals(Id))
 				objeto=o;
 		}
-		if (objeto==null)
-			return;
-
 
 		Net.HttpRequest httpPost = new Net.HttpRequest(Net.HttpMethods.PUT);
-		httpPost.setUrl(String.format("%sobjeto/%d/%d",vUrl,partida.getId(),jugador.getId()));
+		httpPost.setUrl(String.format
+				("%sobjeto/%d/%d",vUrl,partida.getId(),jugador.getId()));
 		httpPost.setHeader("Content-Type","application/json");
 		Json json=new Json();
 		json.setOutputType(JsonWriter.OutputType.json);
